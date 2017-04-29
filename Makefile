@@ -1,7 +1,7 @@
-DIRS := $(shell ls -d */)
+DIRS := $(wildcard */Makefile)
 
 all: $(DIRS)
-	@ for dir in $^; do $(MAKE) -sC $$dir; done
+	@$(foreach d,$(DIRS),$(MAKE) -sC $(dir $(d));)
 clean:
 	@ echo "Cleaning all patterns"
 .PHONY: clean
