@@ -4,7 +4,7 @@ CC := g++
 CFLAGS := -std=c++11 -Wall -Werror
 
 CPP_FILES := $(wildcard src/*.cpp)
-OBJ_FILES :=$(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
+OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 
 TARGET_NAME := Singleton
 TARGET_DIR 	:= bin/
