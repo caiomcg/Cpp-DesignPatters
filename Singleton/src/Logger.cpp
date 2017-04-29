@@ -1,5 +1,10 @@
 #include "Logger.h"
 
+Logger& Logger::getInstance() {
+    static Logger instance;
+    return instance;
+}
+
 Logger::Logger() {
     logger = std::ofstream("./logger.log", std::ios::out);
     if (!logger.is_open()) {
@@ -11,11 +16,6 @@ Logger::~Logger() {
     if (logger.is_open()) {
         logger.close();
     }
-}
-
-Logger& Logger::getInstance() {
-    static Logger instance;
-    return instance;
 }
 
 void Logger::debug(const std::string& message) {
